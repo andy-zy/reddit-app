@@ -1,66 +1,44 @@
 // @flow
 import React, { Component } from 'react'
-import {
-  View,
-  Image,
-  FlatList,
-  ActivityIndicator,
-  TouchableHighlight,
-} from 'react-native'
+import { View } from 'react-native'
 
 import type { ArticleT } from '../../domain/types'
-import type { PropsT, RenderT } from './types'
+import type { PropsT, StateT, RenderT } from './types'
 
-import { SubHeading } from '../../components'
+import { Tabs, ArticleList, ListItem } from './components'
 import { layout } from '../../styles';
-import styles from './styles'
 
-export default class Articles extends Component<PropsT> {
+export default class Articles extends Component<PropsT, StateT> {
 
   static navigationOptions = {
-    title: 'ReactJS',
+    title: 'Articles',
+  }
+
+  constructor(props: PropsT) {
+    super(props)
+
+    this.state = {
+      activeIndex: 0,
+    }
   }
 
   componentDidMount() {
     const { getArticlesByCategory } = this.props
 
-    getArticlesByCategory(Articles.navigationOptions.title.toLocaleLowerCase())
+    getArticlesByCategory('reactjs')
+  }
+
+  componentWillReceiveProps(nextProps: PropsT) {
+    // TODO: add fetching errors handling
   }
 
   renderItem = ({ item }: RenderT) => {
     const { orientation } = this.props
-    const isPortrait: boolean = orientation === 'PORTRAIT'
-    const imageSource = item.preview &&
-      item.preview.images &&
-      item.preview.images[0] &&
-      item.preview.images[0].source;
 
-    return (
-      <TouchableHighlight onPress={this.handlePress(item)} style={styles.button}>
-        <View style={[styles.item, styles.button, !isPortrait && styles.itemL]}>
-          <View style={[styles.imageWrap, isPortrait ? styles.imageWrapP : styles.imageWrapL]} >
-            {
-              imageSource ? (
-                <Image
-                  source={{ uri: imageSource.url, height: imageSource.height, width: imageSource.width }}
-                  style={styles.image}
-                />
-              ) : (
-                <Image source={require('../../images/No_Image_Available.png')} style={styles.image} />
-              )
-            }
-          </View>
-          <SubHeading style={!isPortrait && styles.textL}>{item.title}</SubHeading>
-        </View>
-      </TouchableHighlight>
-    )
+    return <ListItem item={item} onPress={this.handleArticlePress} orientation={orientation} />
   }
 
-  renderSeparator = () => <View style={styles.separator} />
-
-  keyExtractor = (item: ArticleT) => item.id
-
-  handlePress = (item: ArticleT) => {
+  handleArticlePress = (item: ArticleT) => {
     const { setActiveArticle, navigation } = this.props
 
     return () => {
@@ -69,27 +47,40 @@ export default class Articles extends Component<PropsT> {
     }
   }
 
+  handleTabPress = (index: number) => () => {
+    this.setState({
+      activeIndex: index,
+    })
+  }
+
   render() {
     const {
       articles,
+      favorites,
       isFetching,
-      orientation,
     } = this.props
 
-    const isPortrait: boolean = orientation === 'PORTRAIT'
+    const { activeIndex } = this.state
 
     return (
-      <View style={isPortrait ? layout.vContainer : layout.hContainer}>
-        {
-          isFetching ? <ActivityIndicator /> : (
-            <FlatList
-              data={articles}
-              renderItem={this.renderItem}
-              keyExtractor={this.keyExtractor}
-              ItemSeparatorComponent={this.renderSeparator}
-            />
-          )
-        }
+      <View style={layout.container}>
+        <Tabs
+          activeIndex={activeIndex}
+          onPress={this.handleTabPress}
+        />
+
+        <ArticleList
+          display-if={activeIndex === 0}
+          articles={articles}
+          isFetching={isFetching}
+          itemRenderer={this.renderItem}
+        />
+
+        <ArticleList
+          display-if={activeIndex === 1}
+          articles={favorites}
+          itemRenderer={this.renderItem}
+        />
       </View>
     )
   }

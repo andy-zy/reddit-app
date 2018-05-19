@@ -3,6 +3,31 @@ import {
 } from 'react-native'
 
 export default StyleSheet.create({
+  tabs: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+  },
+  tab: {
+    flex: 1,
+    padding: 10,
+    marginLeft: 20,
+    borderBottomWidth: 3,
+    borderColor: '#d2d2d2',
+  },
+  firstTab: {
+    marginLeft:0,
+  },
+  activeTab: {
+    borderColor: '#0ac3ee',
+  },
+  tabText: {
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  list: {
+    flex: 1,
+  },
   button: {
     borderColor: '#FFF',
     borderRadius: 5,
@@ -20,6 +45,7 @@ export default StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    overflow: 'hidden',
   },
   imageWrapP: {
     height: 160,
@@ -34,7 +60,16 @@ export default StyleSheet.create({
     flex: 1,
     resizeMode: 'contain',
   },
-  textL: {
+  textContainer: {
+    flexWrap: 'nowrap',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  textContainerL: {
+    flex: 1,
+  },
+  text: {
     flex: 1,
   },
   separator: {

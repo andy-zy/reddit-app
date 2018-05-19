@@ -7,8 +7,8 @@ import ActionEnum from './constants'
 
 export const INITIAL_STATE: StoreT = {
   articles: [],
+  favorites: {},
   activeArticle: null,
-  favorites: [],
   isFetchingArticles: false,
   fetchingArticlesError: '',
 }
@@ -22,7 +22,24 @@ const actionTypeToHandler = {
     fetchingArticlesError: '',
   }),
 
-  [ActionEnum.SET_ACTIVE_ARTICLE]: (state, { activeArticle }) => ({ activeArticle })
+  [ActionEnum.SET_ACTIVE_ARTICLE]: (state, { activeArticle }) => ({ activeArticle }),
+
+  [ActionEnum.ADD_FAVORITE]: (state, { article }) => ({
+    favorites: {
+      ...state.favorites,
+      [article.id]: article,
+    }
+  }),
+
+  [ActionEnum.REMOVE_FAVORITE]: (state, { id }) => {
+    const newFavorites = { ...state.favorites }
+
+    delete newFavorites[id]
+
+    return {
+      favorites: newFavorites,
+    }
+  },
 }
 
 export default createReducer(actionTypeToHandler, INITIAL_STATE)

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Articles from './Articles'
 import {
   articlesSelector,
+  favoritesSelector,
   isFetchingArticlesSelector,
   fetchingArticlesErrorSelector,
 } from '../../domain/selectors'
@@ -12,6 +13,7 @@ import { OrientationHOC } from '../../components'
 
 const mapStateToProps = (state) => ({
   articles: articlesSelector(state),
+  favorites: favoritesSelector(state),
   isFetching: isFetchingArticlesSelector(state),
   error: fetchingArticlesErrorSelector(state),
 })

@@ -30,6 +30,10 @@ export type ArticleT = {
 
 export type ArticlesT = Array<ArticleT>
 
+export type FavoritesT = {
+  [string]: ArticleT,
+}
+
 export type ActionT = {
   type: string,
   payload?: any,
@@ -37,8 +41,8 @@ export type ActionT = {
 
 export type StoreT = {
   articles: ArticlesT,
+  favorites: FavoritesT,
   activeArticle: ?ArticleT,
-  favorites: ArticlesT,
   isFetchingArticles: boolean,
   fetchingArticlesError: string,
 }

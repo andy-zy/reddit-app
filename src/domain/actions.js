@@ -35,7 +35,12 @@ export const setActiveArticle = (activeArticle) => ({
   payload: { activeArticle },
 })
 
-export const toggleFavorite = (article) => ({
-  type: ActionEnum.TOGGLE_FAVORITE,
+export const addFavorite = (article) => ({
+  type: ActionEnum.ADD_FAVORITE,
   payload: { article },
+})
+
+export const removeFavorite = (id) => ({
+  type: ActionEnum.REMOVE_FAVORITE,
+  payload: { id },
 })
