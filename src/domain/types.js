@@ -40,6 +40,7 @@ export type ActionT = {
 }
 
 export type StoreT = {
+  after: ?string,
   articles: ArticlesT,
   favorites: FavoritesT,
   activeArticle: ?ArticleT,

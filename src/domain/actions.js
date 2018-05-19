@@ -2,14 +2,14 @@ import ActionEnum from './constants'
 import api from '../services/api'
 import endpoints from '../utils/endpoints'
 
-export const getArticlesByCategory = (category, from, count) => (dispatch) => {
+export const getArticlesByCategory = (category, after, limit) => (dispatch) => {
   dispatch({
     type: ActionEnum.GET_ARTICLES,
   })
 
-  api.get(endpoints.getArticlesCategoryUrl(category))
+  api.get(endpoints.getArticlesCategoryUrl(category, after, limit))
     .then((response) => response.json())
-    .then(({ data }) => {
+    .then(({ data, message }) => {
       if (data && data.children) {
         dispatch({
           type: ActionEnum.GET_ARTICLES_SUCCESS,
@@ -18,7 +18,7 @@ export const getArticlesByCategory = (category, from, count) => (dispatch) => {
       } else {
         dispatch({
           type: ActionEnum.GET_ARTICLES_FAILURE,
-          payload: { error: 'No data found!' },
+          payload: { error: message || 'No data found!' },
         })
       }
     })
@@ -29,6 +29,10 @@ export const getArticlesByCategory = (category, from, count) => (dispatch) => {
       })
     })
 }
+
+export const refreshArticles = () => ({
+  type: ActionEnum.REFRESH_ARTICLES,
+})
 
 export const setActiveArticle = (activeArticle) => ({
   type: ActionEnum.SET_ACTIVE_ARTICLE,

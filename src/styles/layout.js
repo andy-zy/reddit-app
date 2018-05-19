@@ -8,6 +8,7 @@ export default StyleSheet.create({
   },
   container: {
     padding: 10,
+    paddingBottom: 0,
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'flex-start',

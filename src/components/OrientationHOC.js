@@ -5,6 +5,7 @@ import { View } from 'react-native'
 import type { OrientationT, NavigationT } from '../domain/types'
 
 import getDeviceOrientation from '../utils/deviceOrientation'
+
 import { layout } from '../styles'
 
 type PropsT = {

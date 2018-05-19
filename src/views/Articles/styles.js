@@ -3,6 +3,9 @@ import {
 } from 'react-native'
 
 export default StyleSheet.create({
+  search: {
+    marginBottom: 10,
+  },
   tabs: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -74,5 +77,8 @@ export default StyleSheet.create({
   },
   separator: {
     height: 10,
-  }
+  },
+  loaderContainer: {
+    height: 24,
+  },
 })

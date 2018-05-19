@@ -6,6 +6,7 @@ import type { StoreT } from './types'
 import ActionEnum from './constants'
 
 export const INITIAL_STATE: StoreT = {
+  after: null,
   articles: [],
   favorites: {},
   activeArticle: null,
@@ -16,10 +17,23 @@ export const INITIAL_STATE: StoreT = {
 const actionTypeToHandler = {
   [ActionEnum.GET_ARTICLES]: () => ({ isFetchingArticles: true, fetchingArticlesError: '' }),
   [ActionEnum.GET_ARTICLES_FAILURE]: (state, { error }) => ({ isFetchingArticles: false, fetchingArticlesError: error }),
-  [ActionEnum.GET_ARTICLES_SUCCESS]: (state, { articles }) => ({
-    articles: articles.map(({ data: { id, title, url, preview } }) => ({ id, title, url, preview })),
-    isFetchingArticles: false,
-    fetchingArticlesError: '',
+  [ActionEnum.GET_ARTICLES_SUCCESS]: (state, { articles }) => {
+    const after = articles[articles.length - 1].data.name
+
+    return {
+      after,
+      articles: [
+        ...state.articles,
+        ...articles.map(({ data: { id, title, url, preview } }) => ({ id, title, url, preview }))
+      ],
+      isFetchingArticles: false,
+      fetchingArticlesError: '',
+    }
+  },
+
+  [ActionEnum.REFRESH_ARTICLES]: () => ({
+    articles: [],
+    after: null,
   }),
 
   [ActionEnum.SET_ACTIVE_ARTICLE]: (state, { activeArticle }) => ({ activeArticle }),

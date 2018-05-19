@@ -2,6 +2,8 @@
 import React from 'react'
 import {
   View,
+  Text,
+  Button,
   FlatList,
   ActivityIndicator,
 } from 'react-native'
@@ -15,18 +17,40 @@ const keyExtractor = (item: ArticleT) => item.id
 
 const separatorRenderer = () => <View style={styles.separator} />
 
-const ArticleList = ({ isFetching, articles, itemRenderer }: ArticleListPropsT) => (
+const ArticleList = ({
+  error,
+  isFetching,
+  articles,
+  itemRenderer,
+  fetchData,
+  onRefresh,
+}: ArticleListPropsT) => (
   <View style={styles.list}>
-    {
-      isFetching ? <ActivityIndicator /> : (
-        <FlatList
-          data={articles}
-          renderItem={itemRenderer}
-          keyExtractor={keyExtractor}
-          ItemSeparatorComponent={separatorRenderer}
-        />
-      )
-    }
+    <FlatList
+      display-if={articles.length}
+      data={articles}
+      renderItem={itemRenderer}
+      keyExtractor={keyExtractor}
+      ItemSeparatorComponent={separatorRenderer}
+      onEndReachedThreshold={0.2}
+      onEndReached={fetchData}
+      refreshing={isFetching}
+      onRefresh={onRefresh}
+    />
+
+    <View display-if={!isFetching && !articles.length}>
+      <Text style={styles.tabText}>No data to show!</Text>
+
+      <Button
+        display-if={error}
+        onPress={fetchData}
+        title="Try Again"
+      />
+    </View>
+
+    <View style={styles.loaderContainer} >
+      <ActivityIndicator display-if={isFetching} />
+    </View>
   </View>
 )
 

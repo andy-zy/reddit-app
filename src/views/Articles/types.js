@@ -6,16 +6,26 @@ export type RenderT = {
 }
 
 export type OwnPropsT = {
+  after: ?string,
   articles: ArticlesT,
   favorites: ArticlesT,
   isFetching: boolean,
   error: string,
   setActiveArticle: Function,
+  refreshArticles: Function,
   getArticlesByCategory: Function,
 }
 
 export type StateT = {
+  articles: ArticlesT,
+  favorites: ArticlesT,
+  query: ?string,
   activeIndex: number,
+}
+
+export type SearchPropsT = {
+  query: string,
+  onSearch: Function,
 }
 
 export type TabsPropsT = {
@@ -24,9 +34,12 @@ export type TabsPropsT = {
 }
 
 export type ArticleListPropsT = {
+  error: ?string,
   isFetching: boolean,
   articles: ArticlesT,
   itemRenderer: Function,
+  fetchData: Function,
+  onRefresh: Function,
 }
 
 export type ListItemPropsT = {

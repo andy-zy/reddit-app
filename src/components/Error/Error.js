@@ -1,13 +1,15 @@
 // @flow
 import React, { Component } from 'react'
 import {
+  Image,
   Text,
   View,
 } from 'react-native'
 
-import type { PropsBaseT } from '../domain/types'
+import type { PropsBaseT } from '../../domain/types'
 
-import { layout, colors } from '../styles'
+import { layout } from '../../styles'
+import styles from './styles'
 
 export default class Error extends Component<PropsBaseT> {
 
@@ -20,8 +22,12 @@ export default class Error extends Component<PropsBaseT> {
     const error: string = navigation.state.params.error || 'Something went wrong!'
 
     return (
-      <View style={layout.vContainer}>
-        <Text style={colors.error}>{error}</Text>
+      <View style={[layout.container, styles.container]}>
+        <Image
+          style={styles.image}
+          source={require('../../images/oops.png')}
+        />
+        <Text style={styles.error}>{error}</Text>
       </View>
     )
   }
