@@ -32,13 +32,13 @@ export type ArticlesT = Array<ArticleT>
 
 export type ActionT = {
   type: string,
-  payload: ?any,
+  payload?: any,
 }
 
 export type StoreT = {
-  articles: [],
-  activeArticle: null,
-  favorites: [],
-  isFetchingArticles: false,
-  fetchingArticlesError: '',
+  articles: ArticlesT,
+  activeArticle: ?ArticleT,
+  favorites: ArticlesT,
+  isFetchingArticles: boolean,
+  fetchingArticlesError: string,
 }
