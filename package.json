@@ -20,6 +20,7 @@
   "devDependencies": {
     "babel-eslint": "^8.2.3",
     "babel-jest": "22.4.3",
+    "babel-plugin-jsx-display-if": "^3.0.0",
     "babel-preset-react-native": "4.0.0",
     "eslint": "^4.19.1",
     "eslint-plugin-flowtype": "^2.46.3",
