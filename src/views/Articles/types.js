@@ -42,6 +42,10 @@ export type ArticleListPropsT = {
   onRefresh: Function,
 }
 
+export type ArticleListStateT = {
+  translateX: any,
+}
+
 export type ListItemPropsT = {
   item: ArticleT,
   onPress: Function,
