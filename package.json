@@ -23,15 +23,24 @@
     "babel-jest": "22.4.3",
     "babel-plugin-jsx-display-if": "^3.0.0",
     "babel-preset-react-native": "4.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "eslint": "^4.19.1",
     "eslint-plugin-flowtype": "^2.46.3",
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-react-native": "^3.2.1",
     "flow-bin": "^0.63.1",
     "jest": "22.4.3",
+    "jest-serializer-enzyme": "^1.0.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.3.2",
     "react-test-renderer": "16.2.0"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }
