@@ -11,6 +11,7 @@
   "dependencies": {
     "react": "16.2.0",
     "react-native": "0.53.0",
+    "react-native-fit-image": "^1.5.4",
     "react-navigation": "^2.0.1",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",

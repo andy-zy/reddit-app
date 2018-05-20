@@ -12,9 +12,9 @@ export type ImageSourceT = {
   width: number,
   height: number,
 }
-
 export type ImageT = {
   source: ImageSourceT,
+  resolutions?: Array<ImageSourceT>,
 }
 
 export type PreviewT = {

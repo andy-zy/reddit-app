@@ -51,17 +51,19 @@ export default StyleSheet.create({
     overflow: 'hidden',
   },
   imageWrapP: {
-    height: 160,
     marginBottom: 10,
   },
   imageWrapL: {
     flex: 1,
-    height: 120,
     marginRight: 10,
   },
   image: {
-    flex: 1,
-    resizeMode: 'contain',
+    width: 300,
+    height: 160,
+  },
+  noImage: {
+    width: 160,
+    height: 160,
   },
   textContainer: {
     flexWrap: 'nowrap',
