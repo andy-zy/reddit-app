@@ -2,19 +2,11 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
 
-import type { OrientationT, NavigationT } from '../domain/types'
+import type { PropsT, StateT } from './types'
 
-import getDeviceOrientation from '../utils/deviceOrientation'
+import getDeviceOrientation from '../../utils/deviceOrientation'
 
-import { layout } from '../styles'
-
-type PropsT = {
-  navigation: NavigationT,
-}
-
-type StateT = {
-  orientation: OrientationT,
-}
+import { layout } from '../../styles'
 
 export default (RootComponent: any) => class OrientationHOC extends Component<PropsT, StateT> {
 

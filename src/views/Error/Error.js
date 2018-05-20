@@ -6,20 +6,19 @@ import {
   View,
 } from 'react-native'
 
-import type { PropsBaseT } from '../../domain/types'
+import type { ErrorPropsT } from './types'
 
 import { layout } from '../../styles'
 import styles from './styles'
 
-export default class Error extends Component<PropsBaseT> {
+export default class Error extends Component<ErrorPropsT> {
 
   static navigationOptions = {
     title: 'Error',
   }
 
   render() {
-    const { navigation } = this.props
-    const error: string = navigation.state.params.error || 'Something went wrong!'
+    const { error = 'Something went wrong!' } = this.props
 
     return (
       <View style={[layout.container, styles.container]}>

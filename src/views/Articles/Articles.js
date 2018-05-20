@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react'
-import { KeyboardAvoidingView } from 'react-native'
+import { View } from 'react-native'
 
 import type { ArticleT } from '../../domain/types'
 import type { PropsT, StateT, RenderT } from './types'
@@ -131,11 +131,7 @@ export default class Articles extends Component<PropsT, StateT> {
     } = this.state
 
     return (
-      <KeyboardAvoidingView
-        style={layout.container}
-        behavior="padding"
-        enabled={orientation === 'PORTRAIT'}
-      >
+      <View style={layout.container}>
         <Search
           onSearch={this.handleSearch}
           query={query}
@@ -161,7 +157,7 @@ export default class Articles extends Component<PropsT, StateT> {
           articles={favorites}
           itemRenderer={this.renderItem}
         />
-      </KeyboardAvoidingView>
+      </View>
     )
   }
 }

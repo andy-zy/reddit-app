@@ -1,4 +1,4 @@
-import Error from '../components/Error/Error'
+import Error from './Error'
 import Articles from './Articles'
 import Browser from './Browser'
 

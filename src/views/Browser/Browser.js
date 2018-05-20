@@ -1,19 +1,15 @@
 // @flow
 import React, { Component } from 'react'
-import {
-  WebView,
-  Text,
-  TouchableHighlight,
-} from 'react-native'
+import { WebView } from 'react-native'
 
 import { Favorite } from '../../components'
 
-import type { RenderT } from './types'
+import type { BrowserPropsT } from './types'
 
-class Browser extends Component<RenderT> {
+class Browser extends Component<BrowserPropsT> {
 
   static navigationOptions = {
-    headerRight: (<Favorite toggleFavorite={() => alert(123)} />),
+    headerRight: <Favorite />,
   };
 
   render() {
