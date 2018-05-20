@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "stretch",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "flex-start",
+        "padding": 10,
+        "paddingBottom": 0,
+      },
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/images/oops.png",
+      }
+    }
+    style={
+      Object {
+        "height": 92.5,
+        "width": 128,
+      }
+    }
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#EE0000",
+        "fontSize": 16,
+        "marginTop": 10,
+      }
+    }
+  >
+    error
+  </Text>
+</View>
+`;

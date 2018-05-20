@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favorite renders correctly favorite layout 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "marginRight": 10,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/images/marked_favorite.png",
+      }
+    }
+    style={
+      Object {
+        "height": 24,
+        "width": 24,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Favorite renders correctly non-favorite layout 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "marginRight": 10,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/images/unmarked_favorite.png",
+      }
+    }
+    style={
+      Object {
+        "height": 24,
+        "width": 24,
+      }
+    }
+  />
+</View>
+`;
