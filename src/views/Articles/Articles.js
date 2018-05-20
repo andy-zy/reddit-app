@@ -5,7 +5,7 @@ import { View } from 'react-native'
 import type { ArticleT } from '../../domain/types'
 import type { PropsT, StateT, RenderT } from './types'
 
-import { Tabs, Search, ArticleList, ListItem } from './components'
+import { Tabs, Search, ArticleListAnimated, ListItem } from './components'
 import { layout } from '../../styles';
 
 export default class Articles extends Component<PropsT, StateT> {
@@ -142,7 +142,7 @@ export default class Articles extends Component<PropsT, StateT> {
           onPress={this.handleTabPress}
         />
 
-        <ArticleList
+        <ArticleListAnimated
           display-if={activeIndex === 0}
           articles={articles}
           isFetching={isFetching}
@@ -152,7 +152,7 @@ export default class Articles extends Component<PropsT, StateT> {
           error={error}
         />
 
-        <ArticleList
+        <ArticleListAnimated
           display-if={activeIndex === 1}
           articles={favorites}
           itemRenderer={this.renderItem}
