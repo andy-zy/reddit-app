@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "marginBottom": 10,
+    }
+  }
+>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "borderBottomWidth": 3,
+          "borderColor": "#d2d2d2",
+          "flex": 1,
+          "marginLeft": 20,
+          "padding": 10,
+        },
+        Object {
+          "marginLeft": 0,
+        },
+        false,
+      ]
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 16,
+          "textAlign": "center",
+        }
+      }
+    >
+      ReactJS
+    </Text>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "borderBottomWidth": 3,
+          "borderColor": "#d2d2d2",
+          "flex": 1,
+          "marginLeft": 20,
+          "padding": 10,
+        },
+        false,
+        Object {
+          "borderColor": "#0ac3ee",
+        },
+      ]
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 16,
+          "textAlign": "center",
+        }
+      }
+    >
+      Favorites
+    </Text>
+  </View>
+</View>
+`;

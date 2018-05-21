@@ -9,7 +9,7 @@ import type { SearchPropsT } from '../types'
 
 import styles from '../styles'
 
-const Tabs = ({ query, onSearch }: SearchPropsT) => (
+const Search = ({ query, onSearch }: SearchPropsT) => (
   <View style={styles.search}>
     <TextInput
       clearButtonMode="always"
@@ -20,4 +20,4 @@ const Tabs = ({ query, onSearch }: SearchPropsT) => (
   </View>
 )
 
-export default Tabs
+export default Search
